@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.progress-bar-container {
+  background: red;
+  width: 100%;
+  height: 5px;
+}
+
+.progress-bar {
+  background-color: blue;
+  height: 100%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
