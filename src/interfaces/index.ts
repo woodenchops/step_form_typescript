@@ -12,8 +12,6 @@ export interface FormDataType {
 
 export interface FormProps {
   step: StepTypes;
-  formData: FormDataType;
-  handleFormData: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface SingleFormProps {
