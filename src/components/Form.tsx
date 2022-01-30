@@ -1,4 +1,4 @@
-import React, {memo, useState} from 'react';
+import React, {useState} from 'react';
 import { FormProps, FormDataType } from '../interfaces/index';
 import StepOne from './StepOne';
 import StepThree from './StepThree';
@@ -10,25 +10,15 @@ const component = {
   stepThree: StepThree
 }
 
-const Form: React.FC<FormProps> = ({step}) => {
-
-  const [formData, setFormData] = useState<FormDataType>({
-    one: '',
-    two: '',
-    three: ''
-  })
-
-  const handleFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prevState => {
-      return {
-        ...prevState,
-        [e.target.name]: e.target.value
-      }
-    })
-  }
+const Form: React.FC<FormProps> = ({step, onSubmitHandler, formData, handleFormData}) => {
 
   const Component = component[step];
-  return <Component handleFormData={handleFormData} formData={formData} />
+  return (
+    <form onSubmit={onSubmitHandler}>
+      <Component handleFormData={handleFormData} formData={formData} />
+    </form>
+  )
+
 };
 
-export default memo(Form);
+export default Form;
